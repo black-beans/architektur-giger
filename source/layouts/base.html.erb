@@ -13,8 +13,10 @@
   <script type="text/javascript" src="//use.typekit.net/zfi4tjo.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
-<body class="<%= page_classes %>">
-    <%= yield %>
+<body>
+    <div class="page <%= page_classes %>">
+        <%= yield %>
+    </div>
     <%= javascript_include_tag 'application' %>
     <script>
         (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
