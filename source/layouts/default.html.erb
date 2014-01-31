@@ -1,13 +1,15 @@
 <% wrap_layout :base do %>
   <div id="logo">
-    Logo
+    <span>Architekturbüro</span>
+    <%= image_tag 'giger-architektur.jpg', alt: 'Giger Architektur' %>
   </div>
 
   <%= partial 'navigation' %>
 
   <div id="mood">
-    Stimmungsbild
   </div>
 
-  <%= yield %>
+  <div id="content">
+    <%= yield %>
+  </div>
 <% end %>

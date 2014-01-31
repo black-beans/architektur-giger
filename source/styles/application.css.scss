@@ -4,4 +4,167 @@
  *= require_self
  */
 
-@import 'compass/css3';
+@import 'compass';
+
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  position: relative;
+
+  width: 1273px;
+  min-height: 100%;
+
+  margin: auto;
+
+  font-family: "adobe-garamond-pro";
+  font-size: 12pt;
+  line-height: 20pt;
+  color: #000;
+
+  #logo {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+
+    width: 400px;
+    height: 65px;
+
+    span {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+
+      font-family: "prenton";
+      font-size: 15pt;
+      color: #3d3d3d;
+      text-transform: uppercase;
+    }
+
+    img {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  #navigation {
+    overflow: auto;
+    width: 1213px;
+    margin: auto;
+
+    ul {
+      list-style-type: none;
+      text-align: justify;
+      margin-top: 125px;
+
+      li {
+        display: inline;
+
+        a {
+          font-family: "prenton";
+          font-size: 15pt;
+          text-decoration: none;
+          color: #a8a9a7;
+          text-transform: uppercase;
+
+          &:hover {
+            color: #dd5540;
+          }
+        }
+
+        &.current a {
+          color: #dd5540;
+        }
+
+        &.stretch {
+          display: inline-block;
+          width: 100%;
+          zoom: 1;
+        }
+      }
+    }
+  }
+
+  #mood {
+    width: 1273px;
+    height: 253px;
+
+    margin-top: 135px;
+  }
+
+  &.index {
+    #mood {
+      background: transparent url(/images/moods/giger.jpg) no-repeat;
+    }
+  }
+
+  &.architektur {
+    #mood {
+      background: transparent url(/images/moods/architektur.jpg) no-repeat;
+    }
+  }
+
+  &.baumanagement {
+    #mood {
+      background: transparent url(/images/moods/baumanagement.jpg) no-repeat;
+    }
+  }
+
+  &.bauherrenberatung {
+    #mood {
+      background: transparent url(/images/moods/bauherrenberatung.jpg) no-repeat;
+    }
+  }
+
+  &.philosophie {
+    #mood {
+      background: transparent url(/images/moods/philosophie.jpg) no-repeat;
+    }
+  }
+
+  &.firma {
+    #mood {
+      background: transparent url(/images/moods/firma.jpg) no-repeat;
+    }
+  }
+
+  &.ausbildung {
+    #mood {
+      background: transparent url(/images/moods/ausbildung.jpg) no-repeat;
+    }
+  }
+
+  &.kontakt {
+    #mood {
+      background: transparent url(/images/moods/kontakt.jpg) no-repeat;
+    }
+  }
+
+  #content {
+    width: 810px;
+    margin: auto;
+
+    h2 {
+      font-family: "prenton";
+      font-size: 15pt;
+      text-transform: uppercase;
+    }
+
+    h4, h5 {
+      font-family: "adobe-garamond-pro";
+      font-weight: 700;
+      font-size: 12pt;
+      line-height: 20pt;
+    }
+
+    hr {
+      background-color: #000;
+      height: 0.5pt;
+    }
+  }
+}
+
+
+
