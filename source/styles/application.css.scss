@@ -150,6 +150,8 @@
       font-family: "prenton";
       font-size: 15pt;
       text-transform: uppercase;
+      color: #a8a9a7;
+      margin-bottom: 0;
     }
 
     h4, h5 {
@@ -157,11 +159,74 @@
       font-weight: 700;
       font-size: 12pt;
       line-height: 20pt;
+      margin-bottom: 0;
+    }
+
+    h5 {
+      margin-top: 0;
     }
 
     hr {
       background-color: #000;
       height: 0.5pt;
+    }
+
+    table {
+      tr {
+        border-collapse: collapse;
+
+        td {
+          vertical-align: top;
+          padding: 5px 10px;
+
+          &:nth-child(0n+1), &:nth-child(0n+2) {
+            font-weight: 700;
+            white-space: nowrap;
+          }
+
+          ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+          }
+        }
+
+        &.border {
+          border-top: 1px solid #000;
+        }
+      }
+
+      &.inner-table {
+        tr td {
+          font-weight: 300;
+
+          &:first-child {
+            padding-left: 0;
+          }
+        }
+      }
+    }
+
+    address {
+      font-style: normal;
+    }
+
+    #office p {
+      float: right;
+      font-family: "prenton";
+      font-size: 21pt;
+      text-transform: uppercase;
+    }
+
+    .trainees {
+      float: right;
+      width: 500px;
+      margin-top: 25px;
+    }
+
+    .thomas-giger {
+      float: right;
+      margin-right: 250px;
     }
   }
 }
