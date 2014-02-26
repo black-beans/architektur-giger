@@ -149,6 +149,12 @@
     }
   }
 
+  &.jobs {
+    #mood {
+      background: transparent url(/images/moods/jobs.jpg) no-repeat;
+    }
+  }
+
   #content {
     width: 810px;
     margin: auto;
