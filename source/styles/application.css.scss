@@ -58,6 +58,7 @@
       list-style-type: none;
       text-align: justify;
       margin-top: 125px;
+      padding: 0;
 
       li {
         display: inline;
@@ -139,6 +140,12 @@
   &.kontakt {
     #mood {
       background: transparent url(/images/moods/kontakt.jpg) no-repeat;
+    }
+  }
+
+  &.immobilien {
+    #mood {
+      background: transparent url(/images/moods/immobilien.jpg) no-repeat;
     }
   }
 
