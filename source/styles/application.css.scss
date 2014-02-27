@@ -1,6 +1,7 @@
 /*
  *= require ./vendor/normalize
  *= require ./vendor/boilerplate
+ *= require ./vendor/colorbox
  *= require_self
  */
 
@@ -215,6 +216,28 @@
 
           &:first-child {
             padding-left: 0;
+          }
+        }
+      }
+
+      &.architecture {
+        tr {
+          td {
+            h3, p {
+                margin: 0;
+            }
+
+            a {
+              color: #000;
+            }
+
+            &:nth-child(0n+1) {
+              white-space: normal;
+            }
+
+            .other {
+              display: none;
+            }
           }
         }
       }

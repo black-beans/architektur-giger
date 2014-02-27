@@ -7,51 +7,42 @@ description: 'Durchführung von Architekturarbeiten für Neubauten, Umbauten und
 <h2>Architektur</h2>
 <p>Planung und Ausführung von Hochbauten: Neubau, Umbau und Renovation.</p>
 
-<table>
-  <tr class="border">
-    <td>Neubau</td>
-    <td><a href="">Fotogalerie</a></td>
-    <td>Objebt x, zrit adiam iliquam in ulput alis accum nulluptat, quis alis adit la feui blacore feugiam, consequis
-      nonum
-    </td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Fotogalerie</td>
-    <td>Objebt x, zrit adiam iliquam in ulput alis accum nulluptat, quis alis adit la feui blacore feugiam, consequis
-      nonum
-    </td>
-  </tr>
-
-
-  <tr class="border">
-    <td>Umbau und Renovation</td>
-    <td>Fotogalerie</td>
-    <td>Objebt x, zrit adiam iliquam in ulput alis accum nulluptat, quis alis adit la feui blacore feugiam, consequis
-      nonum
-    </td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Fotogalerie</td>
-    <td>Objebt x, zrit adiam iliquam in ulput alis accum nulluptat, quis alis adit la feui blacore feugiam, consequis
-      nonum
-    </td>
-  </tr>
-
-
-  <tr class="border">
-    <td>Integrierte Wandbeleuchtung</td>
-    <td>Fotogalerie</td>
-    <td>Objebt x, zrit adiam iliquam in ulput alis accum nulluptat, quis alis adit la feui blacore feugiam, consequis
-      nonum
-    </td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Fotogalerie</td>
-    <td>Objebt x, zrit adiam iliquam in ulput alis accum nulluptat, quis alis adit la feui blacore feugiam, consequis
-      nonum
-    </td>
-  </tr>
+<table class="architecture">
+  <% Dir.glob('source/images/architektur/*').select { |fn| File.directory?(fn) }.each_with_index do |area, area_index| %>
+    <% galleries = Dir.glob("#{ area }/*").select { |fn| File.directory?(fn) } %>
+    <% if galleries.empty? %>
+      <tr class="border">
+        <td><%= area.split('/').last.gsub(/^\d+_/, '') %></td>
+        <td>
+          <a href="">Fotoalbum</a>
+        </td>
+        <td>
+          <p><%= File.read("#{ area }/00_info.txt") rescue '' %></p>
+        </td>
+      </tr>
+    <% else %>
+      <% galleries.each_with_index do |gallery, gallery_index| %>
+        <tr class="<%= gallery_index == 0 ? 'border' : '' %>">
+          <td><%= gallery_index == 0 ? area.split('/').last.gsub(/^\d+_/, '') : '' %></td>
+          <td>
+            <% subgalleries = Dir.glob("#{ gallery }/*").select { |fn| File.directory?(fn) } %>
+            <% if subgalleries.empty? %>
+              <% images = Dir.glob("#{ gallery }/*.{jpg,JPG,png,PNG}").select { |fn| !File.directory?(fn) } %>
+              <% images.each_with_index do |image, image_index| %>
+                <a class="gallery group-<%= area_index %>-<%= gallery_index %> <%= image_index == 0 ? 'first' : 'other' %>" href="/<%= image.gsub('source/', '') %>" data-group="group-<%= area_index %>-<%= gallery_index %>">Fotoalbum</a>
+              <% end %>
+            <% else %>
+              <% subgalleries.each do |subgallery| %>
+                <a href=""><%= subgallery.split('/').last.gsub(/^\d+_/, '') %></a><br>
+              <% end %>
+            <% end %>
+          </td>
+          <td>
+            <h3><%= gallery.split('/').last.gsub(/^\d+_/, '') %></h3>
+            <p><%= File.read("#{ gallery }/00_info.txt") rescue '' %></p>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  <% end %>
 </table>
