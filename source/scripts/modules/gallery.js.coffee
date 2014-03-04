@@ -1,6 +1,8 @@
 $(->
   $('a.gallery').colorbox({
-    rel: -> $(@).data('group')
+    maxWidth: '90%'
+    maxHeight: '90%'
     slideshow: true
+    speed: 700
   })
 )

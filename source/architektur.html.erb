@@ -12,7 +12,7 @@ description: 'Durchführung von Architekturarbeiten für Neubauten, Umbauten und
     <% galleries = Dir.glob("#{ area }/*").select { |fn| File.directory?(fn) } %>
     <% if galleries.empty? %>
       <tr class="border">
-        <td><%= area.split('/').last.gsub(/^\d+_/, '') %></td>
+        <td><%= area.split('/').last.gsub(/^\d+_/, '').gsub('_', ' ') %></td>
         <td>
           <a href="">Fotoalbum</a>
         </td>
@@ -23,22 +23,22 @@ description: 'Durchführung von Architekturarbeiten für Neubauten, Umbauten und
     <% else %>
       <% galleries.each_with_index do |gallery, gallery_index| %>
         <tr class="<%= gallery_index == 0 ? 'border' : '' %>">
-          <td><%= gallery_index == 0 ? area.split('/').last.gsub(/^\d+_/, '') : '' %></td>
+          <td><%= gallery_index == 0 ? area.split('/').last.gsub(/^\d+_/, '').gsub('_', ' ') : '' %></td>
           <td>
             <% subgalleries = Dir.glob("#{ gallery }/*").select { |fn| File.directory?(fn) } %>
             <% if subgalleries.empty? %>
               <% images = Dir.glob("#{ gallery }/*.{jpg,JPG,png,PNG}").select { |fn| !File.directory?(fn) } %>
               <% images.each_with_index do |image, image_index| %>
-                <a class="gallery group-<%= area_index %>-<%= gallery_index %> <%= image_index == 0 ? 'first' : 'other' %>" href="/<%= image.gsub('source/', '') %>" data-group="group-<%= area_index %>-<%= gallery_index %>">Fotoalbum</a>
+                <a class="gallery group-<%= area_index %>-<%= gallery_index %> <%= image_index == 0 ? 'first' : 'other' %>" href="/<%= image.gsub('source/', '') %>" rel="group-<%= area_index %>-<%= gallery_index %>" title="<%= image.split('/').last.gsub(/\d+_/, '').gsub('_', ' ').gsub(/(.jpg|.png)/i, '') %>">Fotoalbum</a>
               <% end %>
             <% else %>
               <% subgalleries.each do |subgallery| %>
-                <a href=""><%= subgallery.split('/').last.gsub(/^\d+_/, '') %></a><br>
+                <a href=""><%= subgallery.split('/').last.gsub(/^\d+_/, '').gsub('_', ' ') %></a><br>
               <% end %>
             <% end %>
           </td>
           <td>
-            <h3><%= gallery.split('/').last.gsub(/^\d+_/, '') %></h3>
+            <h3><%= gallery.split('/').last.gsub(/^\d+_/, '').gsub('_', ' ') %></h3>
             <p><%= File.read("#{ gallery }/00_info.txt") rescue '' %></p>
           </td>
         </tr>
