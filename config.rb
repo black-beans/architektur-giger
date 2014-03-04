@@ -78,8 +78,6 @@ set :images_dir, 'images'
 # Build-specific configuration
 #
 configure :build do
-  ignore 'images/**/00_info.txt'
-
   # Enable live reload while working locally
   activate :livereload
 
