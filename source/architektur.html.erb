@@ -513,7 +513,7 @@ galleries:
             <% if gallery.documents %>
               <ul class="docs">
                 <% gallery.documents.each do |document| %>
-                  <li><a href="<%= document.path %>"><%= document.title %></a></li>
+                  <li><a class="iframe" rel="group-doc-<%= area_index %>-<%= gallery_index %>" title="<%= document.title %>" href="<%= document.path %>"><%= document.title %></a></li>
                 <% end %>
               </ul>
             <% end %>
