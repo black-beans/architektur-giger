@@ -1,7 +1,7 @@
 <% wrap_layout :base do %>
   <div id="logo">
     <span>Architekturbüro</span>
-    <%= image_tag 'giger-architektur.jpg', alt: 'Giger Architektur' %>
+    <%= link_to(image_tag('giger-architektur.jpg', alt: 'Giger Architektur'), '/') %>
   </div>
 
   <%= partial 'navigation' %>
