@@ -1,12 +1,22 @@
 %nav#navigation
   %ul
-    = nav_link 'Architektur', '/architektur.html'
-    = nav_link 'Baumanagement', '/baumanagement.html'
-    = nav_link 'Bauherrenberatung', '/bauherrenberatung.html'
-    = nav_link 'Philosohpie', '/philosophie.html'
-    = nav_link 'Firma', '/firma.html'
-    = nav_link 'Ausbildung', '/ausbildung.html'
-    = nav_link 'Jobs', '/jobs.html'
+    = nav_link 'Architektur', '/architektur.html' do
+      = nav_link 'Aktuelle Projekte', '#aktuelle-projekte'
+      = nav_link 'Neubau', '#neubau'
+      = nav_link 'Umbau, Anbau & Renovationen', '#umbau-anbau-renovationen'
+      = nav_link 'Projektplanung', '#projektplanung'
+      = nav_link 'Lehmputze', '#lehmputze'
+      = nav_link 'Integrierte Wandbeleuchtung', '#integrierte-wandbeleuchtung'
+
+    = nav_link 'Dienstleistungen', '/dienstleistungen.html' do
+      = nav_link 'Baumanagement', '#baumanagement'
+      = nav_link 'Bauherrenberatung', '#bauherrenberatung'
+
+    = nav_link 'Firma', '/firma.html' do
+      = nav_link 'Philosohpie', '#philosophie'
+      = nav_link 'Ausbildung', '#ausbildung'
+      = nav_link 'Jobs', '#jobs'
+
     = nav_link 'Immobilien', '/immobilien.html'
+
     = nav_link 'Kontakt', '/kontakt.html'
-    %li.stretch

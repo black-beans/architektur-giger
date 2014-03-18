@@ -51,22 +51,29 @@
   }
 
   #navigation {
+    position: relative;
     overflow: auto;
     width: 1213px;
     margin: auto;
+    top: 125px;
 
-    ul {
-      list-style-type: none;
-      text-align: justify;
-      margin-top: 125px;
+   ul {
+      margin: 0;
       padding: 0;
+      border: 0;
+      overflow: visible;
+      *zoom: 1;
 
       li {
-        display: inline;
+        position: relative;
+        list-style-image: none;
+        list-style-type: none;
+        margin-left: 0;
+        white-space: nowrap;
 
         a {
           font-family: "prenton";
-          font-size: 15pt;
+          font-size: 18pt;
           text-decoration: none;
           color: #a8a9a7;
           text-transform: uppercase;
@@ -76,14 +83,51 @@
           }
         }
 
-        &.current a {
+        &.parent_of_current a {
           color: #dd5540;
         }
 
-        &.stretch {
-          display: inline-block;
-          width: 100%;
-          zoom: 1;
+        &.current a {
+          color: #dd5540;
+        }
+      }
+    }
+
+    > ul {
+      list-style-type: none;
+      height: 60px;
+
+      > li {
+        display: inline;
+        float: left;
+        overflow: hidden;
+        padding-right: 126px;
+
+        &:last-child {
+          padding-right: 0px !important;
+        }
+
+        &:hover, &.parent_of_current {
+          overflow: visible;
+        }
+
+        > ul {
+          position: absolute;
+          padding: 5px 0px;
+
+          > li {
+            padding: 1px 15px 1px 0;
+            display: inline;
+
+            a {
+              font-size: 12pt;
+              color: #a8a9a7 !important;
+
+              &:hover {
+                color: #dd5540 !important;
+              }
+            }
+          }
         }
       }
     }
@@ -93,7 +137,7 @@
     width: 1273px;
     height: 253px;
 
-    margin-top: 50px;
+    margin-top: 175px;
   }
 
   &.index {
@@ -108,21 +152,9 @@
     }
   }
 
-  &.baumanagement {
+  &.dienstleistungen {
     #mood {
-      background: transparent url(/images/moods/baumanagement.jpg) no-repeat;
-    }
-  }
-
-  &.bauherrenberatung {
-    #mood {
-      background: transparent url(/images/moods/bauherrenberatung.jpg) no-repeat;
-    }
-  }
-
-  &.philosophie {
-    #mood {
-      background: transparent url(/images/moods/philosophie.jpg) no-repeat;
+      background: transparent url(/images/moods/dienstleistungen.jpg) no-repeat;
     }
   }
 
@@ -132,27 +164,15 @@
     }
   }
 
-  &.ausbildung {
-    #mood {
-      background: transparent url(/images/moods/ausbildung.jpg) no-repeat;
-    }
-  }
-
-  &.kontakt {
-    #mood {
-      background: transparent url(/images/moods/kontakt.jpg) no-repeat;
-    }
-  }
-
   &.immobilien {
     #mood {
       background: transparent url(/images/moods/immobilien.jpg) no-repeat;
     }
   }
 
-  &.jobs {
+  &.kontakt {
     #mood {
-      background: transparent url(/images/moods/jobs.jpg) no-repeat;
+      background: transparent url(/images/moods/kontakt.jpg) no-repeat;
     }
   }
 
@@ -255,10 +275,11 @@
       text-transform: uppercase;
     }
 
-    .trainees {
-      float: right;
-      width: 500px;
+    .trainee {
+      float: left;
+      width: 405px;
       margin-top: 25px;
+      text-align: center;
     }
 
     .thomas-giger {
@@ -267,6 +288,3 @@
     }
   }
 }
-
-
-
