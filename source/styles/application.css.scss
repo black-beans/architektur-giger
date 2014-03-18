@@ -208,6 +208,11 @@
       height: 0.5pt;
     }
 
+    h2.area {
+      margin-top: 50px;
+      margin-bottom: 25px;
+    }
+
     table {
       tr {
         border-collapse: collapse;
@@ -216,9 +221,10 @@
           vertical-align: top;
           padding: 5px 10px;
 
-          &:nth-child(0n+1), &:nth-child(0n+2) {
+          &:nth-child(0n+1) {
             font-weight: 700;
             white-space: nowrap;
+            width: 200px;
           }
 
           ul {
