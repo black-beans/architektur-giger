@@ -55,7 +55,7 @@
     overflow: auto;
     width: 1213px;
     margin: auto;
-    top: 125px;
+    top: 135px;
 
    ul {
       margin: 0;
@@ -95,7 +95,7 @@
 
     > ul {
       list-style-type: none;
-      height: 60px;
+      height: 70px;
 
       > li {
         display: inline;
@@ -180,6 +180,8 @@
     width: 810px;
     margin: auto;
     margin-top: 50px;
+    margin-bottom: 50px;
+    overflow: auto;
 
     h2 {
       font-family: "prenton";
