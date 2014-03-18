@@ -481,60 +481,43 @@ galleries:
       - title: 'Steinbock'
         path: 'galleries/3/12-steinbock.jpg'
 ---
-<h2>Architektur</h2>
-<p>Planung und Ausführung von Hochbauten: Neubau, Umbau und Renovation.</p>
-
-<table class="architecture">
-  <% current_page.data.galleries.each_with_index do |area, area_index| %>
-    <% if area.galleries %>
-      <% area.galleries.each_with_index do |gallery, gallery_index| %>
-        <tr class="<%= gallery_index == 0 ? 'border' : '' %>">
-          <td><%= gallery_index == 0 ? area.name : '' %></td>
-          <td>
-            <% if gallery.galleries %>
-              <% gallery.galleries.each_with_index do |subgallery, subgallery_index| %>
-                <% subgallery.photos.each_with_index do |photo, photo_index| %>
-                  <a class="gallery <%= photo_index == 0 ? 'first' : 'other' %>" href="/<%= photo.path %>" rel="group-<%= area_index %>-<%= gallery_index %>-<%= subgallery_index %>" title="<%= photo.title %>"><%= subgallery.name %></a>
-                  <% if photo_index == 0 %><br><% end %>
-                <% end %>
-              <% end %>
-            <% else %>
-              <% if gallery.photos %>
-                <% gallery.photos.each_with_index do |photo, photo_index| %>
-                  <a class="gallery <%= photo_index == 0 ? 'first' : 'other' %>" href="/<%= photo.path %>" rel="group-<%= area_index %>-<%= gallery_index %>" title="<%= photo.title %>">Fotoalbum</a>
-                  <% if photo_index == 0 %><br><% end %>
-                <% end %>
-              <% end %>
-            <% end %>
-          </td>
-          <td>
-            <h3><%= gallery.name %></h3>
-            <p><%= gallery.description %></p>
-            <% if gallery.documents %>
-              <ul class="docs">
-                <% gallery.documents.each do |document| %>
-                  <li><a class="iframe" rel="group-doc-<%= area_index %>-<%= gallery_index %>" title="<%= document.title %>" href="/<%= document.path %>"><%= document.title %></a></li>
-                <% end %>
-              </ul>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
-    <% else %>
-      <% if area.photos %>
-        <tr class="border">
-          <td><%= area.name %></td>
-          <td>
-            <% area.photos.each_with_index do |photo, photo_index| %>
-              <a class="gallery <%= photo_index == 0 ? 'first' : 'other' %>" href="/<%= photo.path %>" rel="group-<%= area_index %>" title="<%= photo.title %>">Fotoalbum</a>
-              <% if photo_index == 0 %><br><% end %>
-            <% end %>
-          </td>
-          <td>
-            <p><%= area.description %></p>
-          </td>
-        </tr>
-      <% end %>
-    <% end %>
-  <% end %>
-</table>
+%h2 Architektur
+%p Planung und Ausführung von Hochbauten: Neubau, Umbau und Renovation.
+%table.architecture
+  - current_page.data.galleries.each_with_index do |area, area_index|
+    - if area.galleries
+      - area.galleries.each_with_index do |gallery, gallery_index|
+        %tr{class: gallery_index == 0 ? 'border' : ''}
+          %td= gallery_index == 0 ? area.name : ''
+          %td
+            - if gallery.galleries
+              - gallery.galleries.each_with_index do |subgallery, subgallery_index|
+                - subgallery.photos.each_with_index do |photo, photo_index|
+                  %a{class: "gallery #{photo_index == 0 ? 'first' : 'other'}", href: "/#{photo.path}", rel: "group-#{area_index}-#{gallery_index}-#{subgallery_index}", title: photo.title}= subgallery.name
+                  - if photo_index == 0
+                    %br/
+            - else
+              - if gallery.photos
+                - gallery.photos.each_with_index do |photo, photo_index|
+                  %a{class: "gallery #{photo_index == 0 ? 'first' : 'other'}", href: "/#{photo.path}", rel: "group-#{area_index}-#{gallery_index}", title: photo.title} Fotoalbum
+                  - if photo_index == 0
+                    %br/
+          %td
+            %h3= gallery.name
+            %p= gallery.description
+            - if gallery.documents
+              %ul.docs
+                - gallery.documents.each do |document|
+                  %li
+                    %a.iframe{href: "/#{document.path}", rel: "group-doc-#{area_index}-#{gallery_index}", title: document.title}= document.title
+    - else
+      - if area.photos
+        %tr.border
+          %td= area.name
+          %td
+            - area.photos.each_with_index do |photo, photo_index|
+              %a{class: "gallery #{photo_index == 0 ? 'first' : 'other'}", href: "/#{photo.path}", rel: "group-#{area_index}", title: photo.title} Fotoalbum
+              - if photo_index == 0
+                %br/
+          %td
+            %p= area.description

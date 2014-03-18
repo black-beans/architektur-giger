@@ -1,0 +1,8 @@
+- wrap_layout :base do
+  #logo
+    %span Architekturbüro
+    = link_to(image_tag('giger-architektur.jpg', alt: 'Giger Architektur'), '/')
+  = partial 'navigation'
+  #mood
+  #content
+    = yield
