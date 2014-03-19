@@ -3,6 +3,7 @@
  *= require './vendor/jquery-1.10.2.min'
  *= require './vendor/jquery.colorbox-min'
  *= require './vendor/jquery.colorbox-de'
+ *= require 'bootstrap'
  *= require_tree './modules'
  *= require_self
  */
@@ -31,3 +32,4 @@
 }());
 
 // Place any jQuery/helper plugins in here.
+

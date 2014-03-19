@@ -1,3 +1,6 @@
+require 'bootstrap-sass'
+require 'sprockets'
+
 ###
 # Compass
 ###

@@ -243,7 +243,7 @@ galleries:
             path: 'galleries/1/3/1-aufnahme-gr-erdgeschoss.pdf'
       - name: 'Geschäftsdomizil Architekturbüro Thomas Giger - Mühlau'
         galleries:
-          - name: 'Z-Wohnung EG'
+          - name: 'Wohnung EG'
             photos:
               - title: 'IMG 0115.JPG'
                 path: 'galleries/1/4/0/0-img-0115.jpg'
@@ -251,7 +251,7 @@ galleries:
                 path: 'galleries/1/4/0/1-img-0116.jpg'
               - title: 'IMG 0127.JPG'
                 path: 'galleries/1/4/0/2-img-0127.jpg'
-          - name: 'Z-Wohnung DG'
+          - name: 'Wohnung DG'
             photos:
               - title: 'Fertigstellung 3.Z.W. Bachweg - Mühlau'
                 path: 'galleries/1/4/1/0-fertigstellung-3zw-bachweg-muhlau.jpg'
@@ -283,7 +283,7 @@ galleries:
                 path: 'galleries/1/4/1/13-fertigstellung-3zw-bachweg-muhlau.jpg'
               - title: 'Fertigstellung 3.Z.W. Bachweg - Mühlau'
                 path: 'galleries/1/4/1/14-fertigstellung-3zw-bachweg-muhlau.jpg'
-          - name: 'Architektur Büro OG'
+          - name: 'Büro OG'
             photos:
               - title: 'Büro Ost Lehrlinge'
                 path: 'galleries/1/4/2/0-buro-ost-lehrlinge.jpg'
@@ -464,16 +464,21 @@ galleries:
 %h2 Architektur
 %p Planung und Ausführung von Hochbauten: Neubau, Umbau und Renovation.
 
-- current_page.data.galleries.each_with_index do |area, area_index|
+%table.architecture.table-hover
 
-  %a{ name: area.name.downcase.tr(' ', '-').gsub(/[^a-z-]/, '').gsub('--', '-') }
-  %h2.area= area.name
+  - current_page.data.galleries.each_with_index do |area, area_index|
 
-  %table.architecture
+    %tr.title{ colspan: '2' }
+      %td
+        %h2.area= area.name
+
     - if area.galleries
       - area.galleries.each_with_index do |gallery, gallery_index|
-        %tr
-          %td
+        %tr{ class: gallery_index == 0 ? 'border' : '' }
+          %td.desc
+            %h3= gallery.name
+            %p= gallery.description
+          %td.short
             - if gallery.galleries
               - gallery.galleries.each_with_index do |subgallery, subgallery_index|
                 - subgallery.photos.each_with_index do |photo, photo_index|
@@ -486,21 +491,16 @@ galleries:
                   %a{class: "gallery #{photo_index == 0 ? 'first' : 'other'}", href: "/#{photo.path}", rel: "group-#{area_index}-#{gallery_index}", title: photo.title} Fotoalbum
                   - if photo_index == 0
                     %br/
-          %td
-            %h3= gallery.name
-            %p= gallery.description
-            - if gallery.documents
-              %ul.docs
-                - gallery.documents.each do |document|
-                  %li
-                    %a.iframe{href: "/#{document.path}", rel: "group-doc-#{area_index}-#{gallery_index}", title: document.title}= document.title
+              - if gallery.documents
+                - gallery.documents.each_with_index do |document, document_index|
+                  %a.iframe{class: "gallery #{document_index == 0 ? 'first' : 'other'}", href: "/#{document.path}", rel: "group-doc-#{area_index}-#{gallery_index}", title: document.title} Pläne
     - else
       - if area.photos
-        %tr
-          %td
+        %tr.border
+          %td.desc
+            %p= area.description
+          %td.short
             - area.photos.each_with_index do |photo, photo_index|
               %a{class: "gallery #{photo_index == 0 ? 'first' : 'other'}", href: "/#{photo.path}", rel: "group-#{area_index}", title: photo.title} Fotoalbum
               - if photo_index == 0
                 %br/
-          %td
-            %p= area.description

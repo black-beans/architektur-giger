@@ -2,7 +2,15 @@
   #logo
     %span Architekturbüro
     = link_to(image_tag('giger-architektur.jpg', alt: 'Giger Architektur'), '/')
+
   = partial 'navigation'
-  #mood
-  #content
+
+  %img.mood.img-responsive{ src: "/images/moods/#{ current_page.path.gsub('.html', '') }.jpg" }
+
+  .container-fluid
     = yield
+
+  .container-fluid
+    %footer
+      %hr
+        Copyright &copy; 2014 Architektur Giger · Alle Rechte vorbehalten.

@@ -1,298 +1,201 @@
 /*
- *= require ./vendor/normalize
- *= require ./vendor/boilerplate
+ *= require bootstrap
  *= require ./vendor/colorbox
  *= require_self
  */
 
 @import 'compass';
 
-* {
-  box-sizing: border-box;
+body {
+  margin-bottom: 50px;
+
+  .container-fluid {
+    margin: auto;
+    max-width: 950px;
+  }
 }
 
-.page {
-  position: relative;
+#logo {
+  position: absolute;
+  top: 30px;
+  right: 15px;
 
-  width: 1273px;
-  min-height: 100%;
+  span {
+    font-family: "prenton";
+    font-size: 18px;
+    color: #3d3d3d;
+    text-transform: uppercase;
+    vertical-align: bottom;
+  }
+}
 
-  margin: auto;
-
-  font-family: "adobe-garamond-pro";
-  font-size: 12pt;
-  line-height: 20pt;
-  color: #000;
-
+@media (min-width: 786px) {
   #logo {
-    position: absolute;
-    top: 30px;
-    right: 30px;
+    right: 25px;
+  }
+}
 
-    width: 400px;
-    height: 65px;
+@media (min-width: 996px) {
+  #logo {
+    right: 35px;
+  }
+}
 
-    span {
-      position: absolute;
-      left: 0;
-      bottom: 0;
+@media (min-width: 1200px) {
+  #logo {
+    right: 45px;
+  }
+}
 
+.nav {
+  background-color: transparent;
+  border: 0;
+
+  margin-top: 120px;
+  margin-bottom: 30px;
+
+  li {
+    a {
       font-family: "prenton";
-      font-size: 15pt;
-      color: #3d3d3d;
+      font-size: 22px;
+      text-decoration: none;
+      color: #a8a9a7;
       text-transform: uppercase;
-    }
 
-    img {
-      position: absolute;
-      right: 0;
-      bottom: 0;
+      &:hover {
+        color: #dd5540 !important;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.mood {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+
+.container-fluid {
+  font-family: "adobe-garamond-pro";
+  font-size: 18px;
+
+  h2 {
+    font-family: "prenton";
+    text-transform: uppercase;
+    color: #a8a9a7;
+    font-size: 20px;
+  }
+
+  h3, h4, h5 {
+    font-family: "adobe-garamond-pro";
+    font-weight: 700;
+  }
+
+  .trainee, .owner {
+    margin-top: 20px;
+  }
+
+  address.cursive {
+    font-style: italic;
+  }
+
+  #office p {
+    float: right;
+    font-family: "prenton";
+    font-size: 21pt;
+    text-transform: uppercase;
+    padding-right: 50px;
+  }
+
+  table.info {
+    margin-top: 20px;
+    width: 100%;
+
+    tr {
+      border-collapse: collapse;
+
+      td {
+        vertical-align: top;
+        padding: 5px 10px;
+
+        &:nth-child(0n+1) {
+          font-weight: 700;
+          white-space: nowrap;
+        }
+
+        ul {
+          margin: 0;
+          padding: 0;
+        }
+      }
+
+      &.border {
+        border-top: 1px solid #000;
+      }
     }
   }
 
-  #navigation {
-    position: relative;
-    overflow: auto;
-    width: 1213px;
-    margin: auto;
-    top: 135px;
+  table.architecture {
+    margin-top: 20px;
 
-   ul {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      overflow: visible;
-      *zoom: 1;
+    tr {
+      border-collapse: collapse;
 
-      li {
-        position: relative;
-        list-style-image: none;
-        list-style-type: none;
-        margin-left: 0;
-        white-space: nowrap;
+      &.title td:hover {
+        background-color: transparent !important;
+      }
+
+      td {
+        vertical-align: top;
+        padding-top: 10px;
+
+        &.desc {
+          padding-right: 10px;
+        }
+
+        &.short{
+          white-space: nowrap;
+        }
+
+        ul {
+          margin: 0;
+          padding: 0;
+        }
+
+        h3 {
+          font-size: 18px;
+        }
+
+        h3, p {
+          margin: 0;
+        }
 
         a {
-          font-family: "prenton";
-          font-size: 18pt;
-          text-decoration: none;
-          color: #a8a9a7;
-          text-transform: uppercase;
+          color: #000;
+          text-decoration: underline;
 
           &:hover {
-            color: #dd5540;
+            text-decoration: underline;
           }
         }
 
-        &.parent_of_current a {
-          color: #dd5540;
-        }
-
-        &.current a {
-          color: #dd5540;
-        }
-      }
-    }
-
-    > ul {
-      list-style-type: none;
-      height: 70px;
-
-      > li {
-        display: inline;
-        float: left;
-        overflow: hidden;
-        padding-right: 126px;
-
-        &:last-child {
-          padding-right: 0px !important;
-        }
-
-        &:hover, &.parent_of_current {
-          overflow: visible;
-        }
-
-        > ul {
-          position: absolute;
-          padding: 5px 0px;
-
-          > li {
-            padding: 1px 15px 1px 0;
-            display: inline;
-
-            a {
-              font-size: 12pt;
-              color: #a8a9a7 !important;
-
-              &:hover {
-                color: #dd5540 !important;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  #mood {
-    width: 1273px;
-    height: 253px;
-
-    margin-top: 175px;
-  }
-
-  &.index {
-    #mood {
-      background: transparent url(/images/moods/giger.jpg) no-repeat;
-    }
-  }
-
-  &.architektur {
-    #mood {
-      background: transparent url(/images/moods/architektur.jpg) no-repeat;
-    }
-  }
-
-  &.dienstleistungen {
-    #mood {
-      background: transparent url(/images/moods/dienstleistungen.jpg) no-repeat;
-    }
-  }
-
-  &.firma {
-    #mood {
-      background: transparent url(/images/moods/firma.jpg) no-repeat;
-    }
-  }
-
-  &.immobilien {
-    #mood {
-      background: transparent url(/images/moods/immobilien.jpg) no-repeat;
-    }
-  }
-
-  &.kontakt {
-    #mood {
-      background: transparent url(/images/moods/kontakt.jpg) no-repeat;
-    }
-  }
-
-  #content {
-    width: 810px;
-    margin: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    overflow: auto;
-
-    h2 {
-      font-family: "prenton";
-      font-size: 15pt;
-      text-transform: uppercase;
-      color: #a8a9a7;
-      margin-bottom: 0;
-    }
-
-    h4, h5 {
-      font-family: "adobe-garamond-pro";
-      font-weight: 700;
-      font-size: 12pt;
-      line-height: 20pt;
-      margin-bottom: 0;
-    }
-
-    h5 {
-      margin-top: 0;
-    }
-
-    hr {
-      background-color: #000;
-      height: 0.5pt;
-    }
-
-    h2.area {
-      margin-top: 50px;
-      margin-bottom: 25px;
-    }
-
-    table {
-      tr {
-        border-collapse: collapse;
-
-        td {
-          vertical-align: top;
-          padding: 5px 10px;
-
-          &:nth-child(0n+1) {
-            font-weight: 700;
-            white-space: nowrap;
-            width: 200px;
-          }
-
-          ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-          }
-        }
-
-        &.border {
-          border-top: 1px solid #000;
+        .other {
+          display: none;
         }
       }
 
-      &.inner-table {
-        tr td {
-          font-weight: 300;
-
-          &:first-child {
-            padding-left: 0;
-          }
-        }
-      }
-
-      &.architecture {
-        tr {
-          td {
-            h3, p {
-                margin: 0;
-            }
-
-            a {
-              color: #000;
-            }
-
-            &:nth-child(0n+1) {
-              white-space: normal;
-            }
-
-            .other {
-              display: none;
-            }
-          }
-        }
+      &.border {
+        border-top: 1px solid #000;
       }
     }
 
-    address {
-      font-style: normal;
-    }
+  }
+}
 
-    #office p {
-      float: right;
-      font-family: "prenton";
-      font-size: 21pt;
-      text-transform: uppercase;
-    }
-
-    .trainee {
-      float: left;
-      width: 405px;
-      margin-top: 25px;
-      text-align: center;
-    }
-
-    .thomas-giger {
-      float: right;
-      margin-right: 250px;
-    }
+.container-fluid {
+  footer {
+    margin-top: 75px;
+    font-size: 12px;
   }
 }
