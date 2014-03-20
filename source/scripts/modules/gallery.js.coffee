@@ -3,12 +3,13 @@ $(->
     maxWidth: '90%'
     maxHeight: '90%'
     slideshow: true
-    speed: 700
+    speed: 1000
   })
 
   $('a.iframe').colorbox({
     width: '90%'
     height: '90%'
-    iframe: true
+    iframe: true,
+    slideshow: false
   })
 )
