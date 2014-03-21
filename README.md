@@ -58,18 +58,17 @@ The site will be generated to the `build` directory.
 
 ## Deploy
 
-To deploy the site, you need to create the file `.s3_sync` with the following content and add your AWS credentials:
+To deploy the site `ncftp` needs to be installed:
 
-```YAML
----
-aws_access_key_id: <YOUR_ACCESS_KEY>
-aws_secret_access_key: <YOUR_SECRET_ACCESS_KEY>
+```
+$ brew install ncftp
 ```
 
-now you can deploy with:
+To deploy the static site use the following commands:
 
-```Bash
-$ bundle exec middleman s3_sync
+```
+$ cd build
+$ ncftpput -u gigerarchftp -R ftp.giger-architektur.ch web .
 ```
 
 ## License
