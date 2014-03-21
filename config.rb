@@ -102,8 +102,3 @@ configure :build do
   activate :directory_indexes
 
 end
-
-activate :s3_sync do |s3_sync|
-  s3_sync.bucket = 'www.giger-architektur.ch'
-  s3_sync.region = 'eu-west-1'
-end
