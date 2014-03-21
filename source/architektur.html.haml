@@ -201,9 +201,9 @@ galleries:
       - name: 'Gebäudeaufnahmen'
         documents:
           - title: 'Aufnahme Fassaden'
-            path: 'galleries/1/3/0-aufnahme-fassaden.pdf'
+            path: 'galleries/1/3/0-aufnahme-fassaden.jpg'
           - title: 'Aufnahme GR Erdgeschoss'
-            path: 'galleries/1/3/1-aufnahme-gr-erdgeschoss.pdf'
+            path: 'galleries/1/3/1-aufnahme-gr-erdgeschoss.jpg'
       - name: 'Geschäftsdomizil Architekturbüro Thomas Giger - Mühlau'
         galleries:
           - name: '2.5 Z-Wohnung EG'
@@ -347,9 +347,9 @@ galleries:
             path: 'galleries/1/3/1-bild-4.jpg'
         documents:
           - title: 'GR Erdgeschoss'
-            path: 'galleries/2/0/0-baueingabe-gr-erdgeschoss.pdf'
+            path: 'galleries/2/0/0-baueingabe-gr-erdgeschoss.jpg'
           - title: 'Nord-Süd-Fassaden'
-            path: 'galleries/2/0/1-baueingabe-nord-sud-fassaden.pdf'
+            path: 'galleries/2/0/1-baueingabe-nord-sud-fassaden.jpg'
       - name: 'Einbau von Wohnungen - Schoren Mühlau'
         photos:
           - title: 'IMG 0002'
@@ -472,7 +472,7 @@ galleries:
                     %br/
               - if gallery.documents
                 - gallery.documents.each_with_index do |document, document_index|
-                  %a.iframe{class: "gallery #{document_index == 0 ? 'first' : 'other'}", href: "/#{document.path}", rel: "group-doc-#{area_index}-#{gallery_index}", title: document.title} Pläne
+                  %a.doc{class: "gallery #{document_index == 0 ? 'first' : 'other'}", href: "/#{document.path}", rel: "group-doc-#{area_index}-#{gallery_index}", title: document.title} Pläne
     - else
       - if area.photos
         %tr.border
