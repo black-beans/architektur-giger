@@ -406,14 +406,15 @@ galleries:
 
     %tr.title
       %td{ colspan: '2' }
+        %hr
         %h2.area= area.name
 
     - if area.galleries
       - if area.description
-        %tr.border
+        %tr
           %td{ colspan: '2' }= area.description
       - area.galleries.each_with_index do |gallery, gallery_index|
-        %tr{ class: gallery_index == 0 && !area.description ? 'border' : '' }
+        %tr
           %td.desc
             %h3= gallery.name
             %p= gallery.description
@@ -435,7 +436,7 @@ galleries:
                   %a.doc{class: "gallery #{document_index == 0 ? 'first' : 'other'}", href: "/#{document.path}", rel: "group-doc-#{area_index}-#{gallery_index}", title: document.title} Pläne
     - else
       - if area.photos
-        %tr.border
+        %tr
           %td.desc
             %p= area.description
           %td.short
