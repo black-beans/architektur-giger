@@ -67,6 +67,12 @@ body {
         background-color: transparent;
       }
     }
+
+    &.current {
+      a {
+        color: #dd5540 !important;
+      }
+    }
   }
 }
 
